@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DN_SAP_2022C_Ex04.pdf
+/packages
+bin/
+obj/
+/.vs
+/.git
+*config
+*csproj
