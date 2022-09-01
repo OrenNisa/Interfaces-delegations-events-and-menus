@@ -1,9 +1,29 @@
-﻿namespace Ex04.Menus.Test
+﻿using Ex04.Menus;
+using Ex04.Menus.Interfaces;
+
+namespace Ex04.Menus.Test
 {
     public class Program
     {
         public static void Main()
         {
+            MainMenu m_MainMenu = new MainMenu("Interfaces Main Menu");
+            MenuItem mi1 = new MenuItem("Version and Spaces", m_MainMenu);
+            MenuItem mi2 = new MenuItem("Show Date/Time", m_MainMenu);
+
+            Function fm11 = new Function("Count Spaces", new ExampleFunctions.VersionAndSpaces().CountSpaces, m_MainMenu);
+            Function fm12 = new Function("Show Version", new ExampleFunctions.VersionAndSpaces().ShowVersion, m_MainMenu);
+            mi1.AddItem(fm11);
+            mi1.AddItem(fm12);
+
+            Function fm21 = new Function("Show Time", new ExampleFunctions.ShowDateTime().ShowTime, m_MainMenu);
+            Function fm22 = new Function("Show Date", new ExampleFunctions.ShowDateTime().ShowDate, m_MainMenu);
+            mi2.AddItem(fm21);
+            mi2.AddItem(fm22);
+
+            m_MainMenu.AddMenuItem(mi1);
+            m_MainMenu.AddMenuItem(mi2);
+            m_MainMenu.Show();
         }
     }
 }
